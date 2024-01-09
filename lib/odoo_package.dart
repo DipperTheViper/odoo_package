@@ -2,6 +2,7 @@ library odoo_package;
 
 import 'dart:convert';
 
+import 'package:logger/logger.dart';
 import 'package:odoo_package/src/api_repository/api_repository.dart';
 import 'package:odoo_rpc/odoo_rpc.dart';
 import 'src/models/export.dart';
@@ -55,7 +56,7 @@ class OdooPackage {
   }
 
   /// load pos data
-  Future<dynamic> loadPosData({
+  Future<Map<String, dynamic>> loadPosData({
     LoadPosDataRequestModel? loadPosDataRequestModel,
   }) async {
     try {
@@ -83,6 +84,35 @@ class OdooPackage {
       // return LoadPosDataResponseModel.fromJson(
       //   res,
       // );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  /// set cash box pos
+  Future<Map<String, dynamic>> setCashBoxPos({
+    List<dynamic> args = const [],
+  }) async {
+    try {
+      final res = await client.callRPC(
+        OdooApiRepository.setCashboxPos,
+        'call',
+        SetCashboxPosRequestModel(
+          args: [
+            userId,
+            ...args
+          ],
+          kwargs: Kwargs(
+            context: Context(
+              allowedCompanyIds: [
+                session.companyId ?? 1,
+              ],
+              uid: userId,
+            ),
+          ),
+        ).toJson(),
+      );
+      return json.decode(res);
     } catch (e) {
       rethrow;
     }

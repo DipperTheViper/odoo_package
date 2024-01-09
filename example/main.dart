@@ -12,10 +12,23 @@ Future<void> main() async {
 
   await odooPackage.init();
 
-  /// call methods like this
-  odooPackage.loadPosData().then(
+  /// call load pos data methods like this
+  // await odooPackage.loadPosData().then(
+  //   (value) {
+  //     /// prints firs item in products
+  //     Logger().i(value["result"]["product.product"].first);
+  //   },
+  // );
+
+  await odooPackage.setCashBoxPos(
+    args: [
+      25.0,
+      "1 x 10\n3 x 5"
+    ],
+  ).then(
     (value) {
-      Logger().i(value["result"]["product.product"].first);
+      /// prints result
+      Logger().i(value);
     },
   );
 }

@@ -12,12 +12,10 @@ class SetCashboxPosRequestModel {
     this.model = "pos.session",
     this.method = "set_cashbox_pos",
     this.args = const [
-      [
-        15,
+      15,
 
-        /// second arg should be amount
-        /// third should be description
-      ],
+      /// second arg should be amount
+      /// third should be description
     ],
     this.kwargs = const Kwargs(),
   });
@@ -39,8 +37,7 @@ class SetCashboxPosRequestModel {
   Map<String, dynamic> toJson() => {
         "model": model,
         "method": method,
-        "args": List<dynamic>.from(
-            args.map((x) => List<dynamic>.from(x.map((x) => x)))),
+        "args": List<dynamic>.from(args.map((x) => x)),
         "kwargs": kwargs.toJson(),
       };
 }
