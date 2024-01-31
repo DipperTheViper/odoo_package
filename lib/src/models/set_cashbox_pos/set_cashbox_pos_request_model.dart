@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../general/kwargs.dart';
+import '../general/kwargs/kwargs.dart';
 
 class SetCashboxPosRequestModel {
   final String model;
@@ -12,10 +12,12 @@ class SetCashboxPosRequestModel {
     this.model = "pos.session",
     this.method = "set_cashbox_pos",
     this.args = const [
-      15,
-
-      /// second arg should be amount
-      /// third should be description
+    //we dont know what's this
+      6,
+      // this is total amount
+      5482.6,
+      // starting money details
+      "Money details: \n  - 1 x \$ 0.01\n  - 2 x \$ 0.02\n  - 3 x \$ 0.05\n  - 4 x \$ 0.10\n  - 5 x \$ 0.20\n  - 6 x \$ 0.25\n  - 7 x \$ 0.50\n  - 8 x \$ 1.00\n  - 9 x \$ 2.00\n  - 10 x \$ 5.00\n  - 11 x \$ 10.00\n  - 12 x \$ 20.00\n  - 13 x \$ 50.00\n  - 14 x \$ 100.00\n  - 15 x \$ 200.00\n"
     ],
     this.kwargs = const Kwargs(),
   });

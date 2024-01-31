@@ -3,7 +3,7 @@ export 'attribute.dart';
 export 'context.dart';
 export 'decimal.dart';
 export 'field_type.dart';
-export 'kwargs.dart';
+export 'kwargs/kwargs.dart';
 export 'loyalty.dart';
 export 'pos.dart';
 export 'product.dart';

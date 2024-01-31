@@ -17,7 +17,7 @@ import '../general/version.dart';
 class LoadPosDataResponseModel {
   final String? jsonrpc;
   final String? id;
-  final Result? result;
+  final LoadPosDataResponseResult? result;
 
   LoadPosDataResponseModel({
     this.jsonrpc,
@@ -34,7 +34,7 @@ class LoadPosDataResponseModel {
       LoadPosDataResponseModel(
         jsonrpc: json["jsonrpc"],
         id: json["id"],
-        result: json["result"] == null ? null : Result.fromMap(json["result"]),
+        result: json["result"] == null ? null : LoadPosDataResponseResult.fromMap(json["result"]),
       );
 
   Map<String, dynamic> toMap() => {
@@ -44,7 +44,7 @@ class LoadPosDataResponseModel {
       };
 }
 
-class Result {
+class LoadPosDataResponseResult {
   final ResCompany? resCompany;
   final DecimalPrecision? decimalPrecision;
   final List<UomUom>? uomUom;
@@ -85,7 +85,7 @@ class Result {
   final FieldTypes? fieldTypes;
   final bool? companyHasSelfOrdering;
 
-  Result({
+  LoadPosDataResponseResult({
     this.resCompany,
     this.decimalPrecision,
     this.uomUom,
@@ -127,11 +127,11 @@ class Result {
     this.companyHasSelfOrdering,
   });
 
-  factory Result.fromJson(String str) => Result.fromMap(json.decode(str));
+  factory LoadPosDataResponseResult.fromJson(String str) => LoadPosDataResponseResult.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Result.fromMap(Map<String, dynamic> json) => Result(
+  factory LoadPosDataResponseResult.fromMap(Map<String, dynamic> json) => LoadPosDataResponseResult(
         resCompany: json["res.company"] == null
             ? null
             : ResCompany.fromMap(json["res.company"]),
