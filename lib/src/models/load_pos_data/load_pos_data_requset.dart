@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../general/kwargs.dart';
+import '../general/kwargs/kwargs.dart';
 
 
 class LoadPosDataRequestModel {
