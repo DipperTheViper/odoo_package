@@ -22,6 +22,7 @@ class KwargsSearch extends Kwargs {
     context: json["context"] == null ? null : Context.fromJson(json["context"]),
   );
 
+  @override
   Map<String, dynamic> toJson() => {
     "offset": offset,
     "limit": limit,

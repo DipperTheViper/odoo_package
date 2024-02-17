@@ -31,7 +31,7 @@ class AdditionalContext {
 
   String toRawJson() => json.encode(toJson());
 
-  factory AdditionalContext.fromJson(Map<String, dynamic> json) => AdditionalContext(
+  factory AdditionalContext.fromJson(Map<String, dynamic> json) => const AdditionalContext(
   );
 
   Map<String, dynamic> toJson() => {

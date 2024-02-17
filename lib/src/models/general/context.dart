@@ -5,11 +5,11 @@ class Context {
   final List<int> allowedCompanyIds;
 
   const Context({
-    this.lang = "en_US",
-    this.tz = "Europe/Brussels",
-    this.uid = 2,
+    this.lang = "fa_IR",
+    this.tz = "Asia/Tehran",
+    this.uid = 8,
     this.allowedCompanyIds = const [
-      1,
+      9,
     ],
   });
 

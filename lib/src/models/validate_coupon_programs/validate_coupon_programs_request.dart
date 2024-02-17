@@ -57,11 +57,7 @@ class ValidateCouponArgs {
   String toRawJson() => json.encode(toJson());
 
   factory ValidateCouponArgs.fromJson(Map<String, dynamic> json) {
-    print('costttttummmmmmer id');
-    print(int.parse(json.keys.toList()[0]));
-    print('royalty amount');
 
-    print(int.parse(json.values.toList()[0]));
     return ValidateCouponArgs(
       costumerId: int.parse(json.keys.toList()[0]),
       royaltyAmount: double.parse(json.values.toList()[0]),

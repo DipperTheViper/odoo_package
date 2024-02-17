@@ -14,7 +14,7 @@ class GetPosUiProductProductByParamsRequest {
     //the list<int> inside domain main method including numbers is filled using search api results
     this.args = const [
       2,
-      ArgClass(domain: [
+      PosArgClass(domain: [
         [
           "id",
           "in",
@@ -49,19 +49,19 @@ class GetPosUiProductProductByParamsRequest {
       };
 }
 
-class ArgClass {
+class PosArgClass {
   final List<List<dynamic>>? domain;
 
-  const ArgClass({
+  const PosArgClass({
     this.domain,
   });
 
-  factory ArgClass.fromRawJson(String str) =>
-      ArgClass.fromJson(json.decode(str));
+  factory PosArgClass.fromRawJson(String str) =>
+      PosArgClass.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ArgClass.fromJson(Map<String, dynamic> json) => ArgClass(
+  factory PosArgClass.fromJson(Map<String, dynamic> json) => PosArgClass(
         domain: json["domain"] == null
             ? []
             : List<List<dynamic>>.from(json["domain"]!

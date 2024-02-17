@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:odoo_package/odoo_package.dart';
 
 import '../context.dart';
@@ -16,7 +14,6 @@ class Kwargs {
     Map<String, dynamic> result = {
       "context": context,
     };
-    print(result);
     return result;
   }
 }

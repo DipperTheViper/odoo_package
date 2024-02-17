@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import '../../../odoo_package.dart';
 import '../general/kwargs/kwargs_search_read_costumer.dart';
 
 class SearchReadCostumerRequest {

@@ -12,7 +12,7 @@ class ConfirmCouponProgramsRequest {
     this.model = "pos.order",
     this.method = "confirm_coupon_programs",
     //the number first argument of this list goes up by one each time we call it .
-    this.args = const [12, ArgClass(the3: The3(points:1,programId:5,couponId:-1,appliedRules:[5]),the36: The3(points:1955,programId:6,couponId:36,partnerId:51))],
+    this.args = const [12, CouponArgClass(the3: The36(points:1,programId:5,couponId:-1,appliedRules:[5]),the36: The36(points:1955,programId:6,couponId:36,partnerId:51))],
     this.kwargs = const Kwargs(),
   });
 
@@ -35,22 +35,22 @@ class ConfirmCouponProgramsRequest {
   };
 }
 
-class ArgClass {
-  final The3? the36;
-  final The3? the3;
+class CouponArgClass {
+  final The36? the36;
+  final The36? the3;
 
- const ArgClass({
+ const CouponArgClass({
     this.the36,
     this.the3,
   });
 
-  factory ArgClass.fromRawJson(String str) => ArgClass.fromJson(json.decode(str));
+  factory CouponArgClass.fromRawJson(String str) => CouponArgClass.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ArgClass.fromJson(Map<String, dynamic> json) => ArgClass(
-    the36: json["36"] == null ? null : The3.fromJson(json["36"]),
-    the3: json["-3"] == null ? null : The3.fromJson(json["-3"]),
+  factory CouponArgClass.fromJson(Map<String, dynamic> json) => CouponArgClass(
+    the36: json["36"] == null ? null : The36.fromJson(json["36"]),
+    the3: json["-3"] == null ? null : The36.fromJson(json["-3"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -59,14 +59,14 @@ class ArgClass {
   };
 }
 
-class The3 {
+class The36 {
   final int? points;
   final int? programId;
   final int? couponId;
   final List<int>? appliedRules;
   final int? partnerId;
 
-  const The3({
+  const The36({
     this.points,
     this.programId,
     this.couponId,
@@ -74,11 +74,11 @@ class The3 {
     this.partnerId,
   });
 
-  factory The3.fromRawJson(String str) => The3.fromJson(json.decode(str));
+  factory The36.fromRawJson(String str) => The36.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory The3.fromJson(Map<String, dynamic> json) => The3(
+  factory The36.fromJson(Map<String, dynamic> json) => The36(
     points: json["points"],
     programId: json["program_id"],
     couponId: json["coupon_id"],

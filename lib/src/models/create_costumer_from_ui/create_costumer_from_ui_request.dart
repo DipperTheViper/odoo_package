@@ -34,7 +34,7 @@ class CreateCostumerFromUiRequest {
   Map<String, dynamic> toJson() => {
         "model": model,
         "method": method,
-        "args": args == null ? [] : List<dynamic>.from(args.map((x) => x)),
+        "args": List<dynamic>.from(args.map((x) => x)),
         "kwargs": kwargs?.toJson(),
       };
 }

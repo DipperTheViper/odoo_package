@@ -1,11 +1,10 @@
 import 'dart:convert';
 import '../../../odoo_package.dart';
-import 'package:const_date_time/const_date_time.dart';
 
 class CreatePaymentFromUiRequest {
   final String? model;
   final String? method;
-  final List<ArgClass>? args;
+  final List<PaymentArgClass>? args;
   final Kwargs? kwargs;
 
   // final DateTime orderCreationDate;
@@ -15,7 +14,7 @@ class CreatePaymentFromUiRequest {
     this.method = "create_from_ui",
     // required this.orderCreationDate,
     this.args = const [
-      ArgClass(
+      PaymentArgClass(
           id: "0008-003-0001",
           toInvoice: false,
           data: PaymentData(
@@ -107,35 +106,35 @@ class CreatePaymentFromUiRequest {
         method: json["method"],
         args: json["args"] == null
             ? []
-            : List<ArgClass>.from(json["args"]!.map((x) => x)),
+            : List<PaymentArgClass>.from(json["args"]!.map((x) => x)),
         kwargs: json["kwargs"] == null ? null : Kwargs.fromJson(json["kwargs"]),
       );
 
   Map<String, dynamic> toJson() => {
         "model": model,
         "method": method,
-        "args": args == null ? [] : List<ArgClass>.from(args!.map((x) => x)),
+        "args": args == null ? [] : List<PaymentArgClass>.from(args!.map((x) => x)),
         "kwargs": kwargs?.toJson(),
       };
 }
 
-class ArgClass {
+class PaymentArgClass {
   final String? id;
   final PaymentData? data;
   final bool? toInvoice;
 
-  const ArgClass({
+  const PaymentArgClass({
     this.id,
     this.data,
     this.toInvoice,
   });
 
-  factory ArgClass.fromRawJson(String str) =>
-      ArgClass.fromJson(json.decode(str));
+  factory PaymentArgClass.fromRawJson(String str) =>
+      PaymentArgClass.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ArgClass.fromJson(Map<String, dynamic> json) => ArgClass(
+  factory PaymentArgClass.fromJson(Map<String, dynamic> json) => PaymentArgClass(
         id: json["id"],
         data: json["data"] == null ? null : PaymentData.fromJson(json["data"]),
         toInvoice: json["to_invoice"],
@@ -236,7 +235,7 @@ class PaymentData {
         userId: json["user_id"],
         uid: json["uid"],
         sequenceNumber: json["sequence_number"],
-        dateOrder: json["date_order"] == null ? null : json["date_order"],
+        dateOrder: json["date_order"],
 
         // : DateTime.parse(json["date_order"]),
         fiscalPositionId: json["fiscal_position_id"],
@@ -508,7 +507,7 @@ class StatementIdClass {
 
   factory StatementIdClass.fromJson(Map<String, dynamic> json) =>
       StatementIdClass(
-        name: json["name"] == null ? null : json["name"],
+        name: json["name"],
         paymentMethodId: json["payment_method_id"],
         amount: json["amount"],
         paymentStatus: json["payment_status"],

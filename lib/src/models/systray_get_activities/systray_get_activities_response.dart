@@ -85,13 +85,13 @@ class SystrayGetActivitiesRequestResult {
 }
 
 enum Type {
-  ACTIVITY,
-  LIST
+  activity,
+  list
 }
 
 final typeValues = EnumValues({
-  "activity": Type.ACTIVITY,
-  "list": Type.LIST
+  "activity": Type.activity,
+  "list": Type.list
 });
 
 class EnumValues<T> {

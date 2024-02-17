@@ -39,7 +39,7 @@ const  Params();
 
   String toRawJson() => json.encode(toJson());
 
-  factory Params.fromJson(Map<String, dynamic> json) => Params(
+  factory Params.fromJson(Map<String, dynamic> json) => const Params(
   );
 
   Map<String, dynamic> toJson() => {

@@ -9,8 +9,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  odoo_rpc:
-    git: https://github.com/DipperTheViper/odoo-rpc-dart
+  http: ^1.1.0
+  crypto: ^3.0.0
   logger: ^2.0.2+1
   flutter:
     sdk: flutter

@@ -12,7 +12,7 @@ class TryCashInOutRequest {
     this.model ="pos.session",
     this.method = "try_cash_in_out",
     this.args =
-     const [[2],"in",1000,"cash in reason test",ArgClass(formattedAmount: "\$ 10000" ,translatedType: "in" ),],
+     const [[2],"in",1000,"cash in reason test",CashArgClass(formattedAmount: "\$ 10000" ,translatedType: "in" ),],
     //cash out example list : [ [2], "out", 300, "chaaaaash out example", ArgClass(formattedAmount: "\$ 10000" ,translatedType: "out" )]
     this.kwargs = const Kwargs(),
   });
@@ -36,20 +36,20 @@ class TryCashInOutRequest {
   };
 }
 
-class ArgClass {
+class CashArgClass {
   final String? formattedAmount;
   final String? translatedType;
 
- const ArgClass({
+ const CashArgClass({
     this.formattedAmount,
     this.translatedType,
   });
 
-  factory ArgClass.fromRawJson(String str) => ArgClass.fromJson(json.decode(str));
+  factory CashArgClass.fromRawJson(String str) => CashArgClass.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ArgClass.fromJson(Map<String, dynamic> json) => ArgClass(
+  factory CashArgClass.fromJson(Map<String, dynamic> json) => CashArgClass(
     formattedAmount: json["formattedAmount"],
     translatedType: json["translatedType"],
   );

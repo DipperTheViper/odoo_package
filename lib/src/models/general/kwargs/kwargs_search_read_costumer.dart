@@ -27,6 +27,7 @@ class KwargsSearchReadCostumer extends Kwargs {
             : List<String>.from(json["fields"]!.map((x) => x)),
       );
 
+  @override
   Map<String, dynamic> toJson() {
     Map<String, dynamic> result = {
       "context": context,
@@ -34,7 +35,6 @@ class KwargsSearchReadCostumer extends Kwargs {
       "domain": domain,
       "fields": fields,
     };
-    print(result);
     return result;
   }
 }

@@ -22,6 +22,7 @@ class KwargsClosingCash extends Kwargs{
     context: json["context"] == null ? null : Context.fromJson(json["context"]),
   );
 
+  @override
   Map<String, dynamic> toJson() => {
     "counted_cash": countedCash,
     "context": context?.toJson(),
