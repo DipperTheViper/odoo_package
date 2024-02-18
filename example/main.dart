@@ -17,7 +17,18 @@ Future<void> main() async {
 
   /// call load pos data methods like this
   try {
-    // await odooPackage.loadPosData();
+    await odooPackage.loadPosData().then(
+      (value) {
+        Logger().i(value["result"]["pos.session"]["id"]);
+        Logger().i(value["result"]["pos.config"]["current_session_id"]);
+        if (value["result"]["pos.session"]["id"] != null) {
+          odooPackage.setPosSession(
+            value["result"]["pos.session"]["id"],
+          );
+        }
+      },
+    );
+
     /// Okay
     // await odooPackage.setCashBoxPos(
     //   args: [0, ""],
@@ -32,46 +43,57 @@ Future<void> main() async {
     // await odooPackage.searchReadCostumer(
     //   searchReadCostumer: SearchReadCostumerRequest(),
     // );
-    ///
+    /// okay
     // await odooPackage.checkObjectReference();
     /// TODO: error
     // await odooPackage.searchReadCostumer(
     //   searchReadCostumer: SearchReadCostumerRequest(),
     // );
-    /// TODO: model problem (pass the small class and place into arg and fix to json function where when it is null , place false in it)
+    /// TODO: model problem (pass the small class and place into arg and fix to json function where when it is null , place false in it) + error (loyalty)
     // await odooPackage.createCostumerFromUi(
     //   createCostumerFromUiRequest: CreateCostumerFromUiRequest(
     //     args: [],
     //   ),
     // );
-    /// TODO: model problem (pass the small class and place into arg and fix to json function where when it is null , place false in it)
+    /// TODO: model problem (pass the small class and place into arg and fix to json function where when it is null , place false in it) + error (loyalty)
     // await odooPackage.createPaymentFromUi(
     //   createPaymentFromUiRequest: CreatePaymentFromUiRequest(),
     // );
-    /// TODO: error and model needs to be separated as well
+    /// TODO: model needs to be separated as well + error
     // await odooPackage.confirmCouponPrograms(
     //   confirmCouponProgramsRequest: ConfirmCouponProgramsRequest(),
     // );
-    /// TODO: error and model needs to be separated as well
+    /// TODO: model needs to be separated as well + error
     // await odooPackage.validateCouponPrograms(
     //   validateCouponProgramsRequest: ValidateCouponProgramsRequest(),
     // );
-    /// TODO: error and model needs to be separated as well
+    /// TODO: model needs to be separated as well + error
     // await odooPackage.useCouponCode(
     //   useCouponCodeRequest: const UseCouponCodeRequest(),
     // );
-    /// TODO: model needs to be separated + error on taking cashier id (it is constant now set on 2)
-    // await odooPackage.tryCashInOut(
-    //   tryCashInOutRequest: TryCashInOutRequest(),
-    // );
+    /// TODO: error
+    await odooPackage.tryCashInOut(
+      args: [
+        "in",
+        1000, //amount
+        "cash in reason test", //note
+        const CashArgClass(
+          //amount
+          formattedAmount: "\$ 1000",
+          translatedType: "in", //type
+        ).toJson(),
+      ],
+    );
+
     /// TODO: model needs to be separated + error
     // await odooPackage.logPartnerMessageRequest(
     //   logPartnerMessageRequest: LogPartnerMessageRequest(),
     // );
-    /// TODO: model needs to be separated
+    /// okay
     // await odooPackage.search(
-    //   searchRequest: SearchRequest(),
+    //   keyword: "desk",
     // );
+
     /// TODO: model needs to be separated + error
     // await odooPackage.getPosUiProductProductByParams(
     //   getPosUiProductProductByParams: GetPosUiProductProductByParamsRequest(),
@@ -88,14 +110,11 @@ Future<void> main() async {
     // await odooPackage.attendanceUserData(
     //   attendanceUserDataRequest: AttendanceUserDataRequest(),
     // );
-    /// TODO: model needs to be separated
-    // await odooPackage.systrayGetActivities(
-    //   systrayGetActivitiesRequest: SystrayGetActivitiesRequest(),
-    // );
-    /// TODO: model needs to be separated
-    // await odooPackage.load(
-    //   loadRequest: LoadRequest(),
-    // );
+    /// okay
+    // await odooPackage.systrayGetActivities();
+    /// okay
+    // await odooPackage.load();
+
     /// TODO: model needs to be separated + error
     // await odooPackage.updateClosingControlStateSession(
     //   updateClosingControlStateSession:
@@ -106,6 +125,6 @@ Future<void> main() async {
     //   closeSessionFromUiRequest: CloseSessionFromUiRequest(),
     // );
   } catch (e) {
-    Logger().e(e);
+    rethrow;
   }
 }

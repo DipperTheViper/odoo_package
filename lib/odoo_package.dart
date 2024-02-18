@@ -29,6 +29,11 @@ class OdooPackage {
 
   /// session id
   late final int userId;
+  late final int _posSessionId;
+
+  void setPosSession(int id) {
+    _posSessionId = id;
+  }
 
   /// Authentication
   Future<void> authentication({
@@ -254,7 +259,7 @@ class OdooPackage {
 
   /// for cashing in or out from burger menu
   Future<Map<String, dynamic>> tryCashInOut({
-    required TryCashInOutRequest tryCashInOutRequest,
+    List<dynamic> args = const [],
   }) async {
     try {
       /// first change the model
@@ -263,7 +268,13 @@ class OdooPackage {
       final res = await client.callRPC(
         OdooApiRepository.tryCashInOut,
         'call',
-        tryCashInOutRequest.toJson(),
+        TryCashInOutRequest(
+          args: [
+            [_posSessionId],
+            /// TODO works with 17 but not user id!
+            ...args
+          ],
+        ).toJson(),
       );
       return json.decode(res);
     } catch (e) {
@@ -289,9 +300,23 @@ class OdooPackage {
 
   /// search more button in products
   Future<Map<String, dynamic>> search({
-    required SearchRequest searchRequest,
+    required String keyword,
   }) async {
     try {
+      SearchRequest searchRequest = SearchRequest(
+        args: [
+          [
+            "&",
+            ["available_in_pos", "=", true],
+            "|",
+            "|",
+            ["name", "ilike", keyword],
+            ["default_code", "ilike", keyword],
+            ["barcode", "ilike", keyword],
+          ],
+        ],
+      );
+
       final res = await client.callRPC(
         OdooApiRepository.search,
         'call',
@@ -376,7 +401,8 @@ class OdooPackage {
   ///
   /// idk!!!@!@#!!$
   Future<Map<String, dynamic>> systrayGetActivities({
-    required SystrayGetActivitiesRequest systrayGetActivitiesRequest,
+    SystrayGetActivitiesRequest systrayGetActivitiesRequest =
+        const SystrayGetActivitiesRequest(),
   }) async {
     try {
       final res = await client.callRPC(
@@ -394,9 +420,9 @@ class OdooPackage {
   /// has response like
   /// {"jsonrpc": "2.0", "id": "803fc81637d4585da5835e0778a31ca6041ee62b", "result": false}
   ///
-  /// idd=k !@!@!$$
+  /// idk !@!@!$$
   Future<Map<String, dynamic>> load({
-    required LoadRequest loadRequest,
+    LoadRequest loadRequest = const LoadRequest(),
   }) async {
     try {
       final res = await client.callRPC(

@@ -8,7 +8,7 @@ class SystrayGetActivitiesRequest {
   final List<dynamic>? args;
   final Kwargs? kwargs;
 
-  SystrayGetActivitiesRequest({
+  const SystrayGetActivitiesRequest({
     this.model = "res.users",
     this.method = "systray_get_activities",
     this.args = const [],
