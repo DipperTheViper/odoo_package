@@ -271,8 +271,7 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
-  ///
+  /// cash in or out (note)
   Future<Map<String, dynamic>> logPartnerMessageRequest({
     required LogPartnerMessageRequest logPartnerMessageRequest,
   }) async {
@@ -288,8 +287,7 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
-  ///
+  /// search more button in products
   Future<Map<String, dynamic>> search({
     required SearchRequest searchRequest,
   }) async {
@@ -305,8 +303,7 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
-  ///
+  /// search more button in customers
   Future<Map<String, dynamic>> getPosUiProductProductByParams({
     required GetPosUiProductProductByParamsRequest
         getPosUiProductProductByParams,
@@ -323,8 +320,7 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
-  ///
+  /// search more button in product
   Future<Map<String, dynamic>> getPosUiProductPriceListByProduct({
     required GetPosUiProductPricelistItemByProductRequest
         getPosUiProductPricelistItemByProduct,
@@ -341,8 +337,7 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
-  ///
+  /// while closing session enter cash
   Future<Map<String, dynamic>> postClosingCashDetails({
     required PostClosingCashDetailsRequest postClosingCashDetailsRequest,
   }) async {
@@ -359,9 +354,10 @@ class OdooPackage {
   }
 
   /// TODO: fix document
-  ///
-  Future<Map<String, dynamic>> attendanceUserData(
-      {required AttendanceUserDataRequest attendanceUserDataRequest}) async {
+  /// idk!!!@!@#!!$
+  Future<Map<String, dynamic>> attendanceUserData({
+    required AttendanceUserDataRequest attendanceUserDataRequest,
+  }) async {
     try {
       final res = await client.callRPC(
         OdooApiRepository.attendanceUserData,
@@ -374,8 +370,11 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
+  /// while closing session is called
+  /// has response like
+  /// {"jsonrpc": "2.0", "id": "4d5f728d331e12a90a1c8060ad159fe5a7cbc0f8", "result": []}
   ///
+  /// idk!!!@!@#!!$
   Future<Map<String, dynamic>> systrayGetActivities({
     required SystrayGetActivitiesRequest systrayGetActivitiesRequest,
   }) async {
@@ -391,9 +390,14 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
+  /// while closing session is called
+  /// has response like
+  /// {"jsonrpc": "2.0", "id": "803fc81637d4585da5835e0778a31ca6041ee62b", "result": false}
   ///
-  Future<Map<String, dynamic>> load({required LoadRequest loadRequest}) async {
+  /// idd=k !@!@!$$
+  Future<Map<String, dynamic>> load({
+    required LoadRequest loadRequest,
+  }) async {
     try {
       final res = await client.callRPC(
         OdooApiRepository.load,
@@ -406,8 +410,11 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
+  /// while closing session is called
+  /// has response like
+  /// ????
   ///
+  /// idd=k !@!@!$$
   Future<Map<String, dynamic>> updateClosingControlStateSession({
     required UpdateClosingControlStateSessionRequest
         updateClosingControlStateSession,
@@ -424,8 +431,11 @@ class OdooPackage {
     }
   }
 
-  /// TODO: fix document
+  /// while closing session is called
+  /// has response like
+  /// ????
   ///
+  /// idd=k !@!@!$$
   Future<Map<String, dynamic>> closeSessionFromUi(
       {required CloseSessionFromUiRequest closeSessionFromUiRequest}) async {
     try {

@@ -64,8 +64,47 @@ Future<void> main() async {
     // await odooPackage.tryCashInOut(
     //   tryCashInOutRequest: TryCashInOutRequest(),
     // );
-    ///
-
+    /// TODO: model needs to be separated + error
+    // await odooPackage.logPartnerMessageRequest(
+    //   logPartnerMessageRequest: LogPartnerMessageRequest(),
+    // );
+    /// TODO: model needs to be separated
+    // await odooPackage.search(
+    //   searchRequest: SearchRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.getPosUiProductProductByParams(
+    //   getPosUiProductProductByParams: GetPosUiProductProductByParamsRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.getPosUiProductPriceListByProduct(
+    //   getPosUiProductPricelistItemByProduct: GetPosUiProductPricelistItemByProductRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.postClosingCashDetails(
+    //   postClosingCashDetailsRequest: PostClosingCashDetailsRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.attendanceUserData(
+    //   attendanceUserDataRequest: AttendanceUserDataRequest(),
+    // );
+    /// TODO: model needs to be separated
+    // await odooPackage.systrayGetActivities(
+    //   systrayGetActivitiesRequest: SystrayGetActivitiesRequest(),
+    // );
+    /// TODO: model needs to be separated
+    // await odooPackage.load(
+    //   loadRequest: LoadRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.updateClosingControlStateSession(
+    //   updateClosingControlStateSession:
+    //       UpdateClosingControlStateSessionRequest(),
+    // );
+    /// TODO: model needs to be separated + error
+    // await odooPackage.closeSessionFromUi(
+    //   closeSessionFromUiRequest: CloseSessionFromUiRequest(),
+    // );
   } catch (e) {
     Logger().e(e);
   }
